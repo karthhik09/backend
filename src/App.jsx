@@ -9,7 +9,8 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [darkMode, setDarkMode] = useState(false);
   // Lift sidebarOpen state to App level to persist across page navigation
-  const [sidebarOpen, setSidebarOpen] = useState(typeof window !== 'undefined' ? window.innerWidth >= 1024 : true);
+  // On mobile (< 1024px), start collapsed to show only icons; on desktop, start expanded
+  const [sidebarOpen, setSidebarOpen] = useState(typeof window !== 'undefined' ? window.innerWidth >= 1024 : false);
 
   // Check for existing user session on mount
   useEffect(() => {

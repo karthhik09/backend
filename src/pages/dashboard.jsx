@@ -127,8 +127,8 @@ function DashboardPage({ darkMode, setDarkMode, onNavigate, sidebarOpen, setSide
                     }}
                 />
 
-                <div className="flex-1 flex flex-col">
-                    <div className="flex-1 p-4 lg:p-8">
+                <div className={`flex-1 flex flex-col transition-all duration-300 ${sidebarOpen ? 'lg:ml-0' : 'lg:ml-0'}`}>
+                    <div className={`flex-1 p-4 lg:p-8 transition-all duration-300 ${sidebarOpen ? 'pl-4' : 'pl-24'} lg:pl-8`}>
                         <div className="max-w-5xl mx-auto">
                             <Header
                                 darkMode={darkMode}

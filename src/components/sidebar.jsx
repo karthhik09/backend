@@ -16,7 +16,7 @@ function Sidebar({ darkMode, sidebarOpen, setSidebarOpen, currentPage, onNavigat
 
             {/* Sidebar - always visible, changes width based on sidebarOpen */}
             <div
-                className={`fixed lg:static inset-y-0 left-0 z-50 transform transition-all duration-300 ease-in-out ${sidebarOpen ? 'w-64' : 'w-20'
+                className={`fixed lg:static inset-y-0 left-0 z-50 transition-all duration-300 ease-in-out ${sidebarOpen ? 'w-64' : 'w-20'
                     } ${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'
                     } min-h-screen border-r shadow-lg`}
             >
