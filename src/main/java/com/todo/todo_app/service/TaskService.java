@@ -4,8 +4,10 @@ import com.todo.todo_app.model.Task;
 import com.todo.todo_app.model.User;
 import com.todo.todo_app.repository.TaskRepository;
 import com.todo.todo_app.repository.UserRepository;
+import com.todo.todo_app.repository.NotificationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,6 +19,9 @@ public class TaskService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private NotificationRepository notificationRepository;
 
     // Fetch tasks for a specific user ID
     public List<Task> getTasksForUser(Long userId) {
@@ -31,8 +36,12 @@ public class TaskService {
         return taskRepository.save(task);
     }
 
-    // delete a task
+    // delete a task and its associated notifications
+    @Transactional
     public void deleteTask(Long taskId) {
+        // Delete all notifications associated with this task first
+        notificationRepository.deleteByTaskId(taskId);
+        // Then delete the task
         taskRepository.deleteById(taskId);
     }
 

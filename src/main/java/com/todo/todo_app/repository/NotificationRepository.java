@@ -16,4 +16,7 @@ public interface NotificationRepository extends JpaRepository<Notification, Long
     Long countByUserIdAndIsReadFalse(Long userId);
 
     boolean existsByTaskIdAndType(Long taskId, Notification.NotificationType type);
+
+    // Delete all notifications for a specific task
+    void deleteByTaskId(Long taskId);
 }
