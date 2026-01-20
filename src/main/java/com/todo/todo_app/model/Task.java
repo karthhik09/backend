@@ -31,8 +31,6 @@ public class Task {
 
     private Integer customReminderMinutes;
 
-    private LocalDateTime lastNotificationSent;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     @JsonIgnore
