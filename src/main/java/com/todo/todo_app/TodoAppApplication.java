@@ -1,3 +1,7 @@
+/**
+ * Main application class
+ */
+
 package com.todo.todo_app;
 
 import org.springframework.boot.SpringApplication;
@@ -10,7 +14,7 @@ public class TodoAppApplication {
 
 	static void main(String[] args) {
 
-        SpringApplication.run(TodoAppApplication.class, args);
+		SpringApplication.run(TodoAppApplication.class, args);
 
 	}
 

@@ -1,3 +1,8 @@
+/**
+ * User Entity
+ * Represents a user in the db
+ */
+
 package com.todo.todo_app.model;
 
 import jakarta.persistence.*;

@@ -1,3 +1,8 @@
+/**
+ * Task Service
+ * Handles task management operations
+ */
+
 package com.todo.todo_app.service;
 
 import com.todo.todo_app.model.Task;
@@ -19,12 +24,12 @@ public class TaskService {
     @Autowired
     private UserRepository userRepository;
 
-    // Fetch tasks for a specific user ID
+    // Fetch tasks for a specific userid
     public List<Task> getTasksForUser(Long userId) {
         return taskRepository.findByUserUserId(userId);
     }
 
-    // Create a task for a specific user ID
+    // Create a task for a specific userid
     public Task createTask(Task task, Long userId) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found"));

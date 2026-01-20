@@ -1,3 +1,8 @@
+/**
+ * Task Entity
+ * Represents a todo task in the db
+ */
+
 package com.todo.todo_app.model;
 
 import jakarta.persistence.*;
@@ -17,25 +22,19 @@ public class Task {
     private Long taskId;
 
     private String title;
-
     private boolean status;
 
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-
-    // Notification fields
     private LocalDateTime dueDateTime;
 
-    @Enumerated(EnumType.STRING)
-    private ReminderType reminderType;
-
-    private Integer customReminderMinutes;
-
+    // Lazy fetch user tasks
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     @JsonIgnore
     private User user;
 
+    // Set timestamps in IST timezone
     @PrePersist
     protected void onCreate() {
         ZoneId istZone = ZoneId.of("Asia/Kolkata");
@@ -44,9 +43,4 @@ public class Task {
         updatedAt = nowIST.toLocalDateTime();
     }
 
-    public enum ReminderType {
-        FIFTEEN_MINUTES,
-        ONE_HOUR,
-        CUSTOM
-    }
 }

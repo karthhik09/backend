@@ -1,10 +1,15 @@
+/**
+ * Authuntication Controller
+ * Handles user authentication and registration
+ */
+
 package com.todo.todo_app.controller;
 
 import com.todo.todo_app.model.User;
 import com.todo.todo_app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.Map;
 
 @RestController

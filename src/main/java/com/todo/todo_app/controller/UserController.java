@@ -1,3 +1,8 @@
+/**
+ * User Controller
+ * Handles user management operations
+ */
+
 package com.todo.todo_app.controller;
 
 import com.todo.todo_app.model.User;

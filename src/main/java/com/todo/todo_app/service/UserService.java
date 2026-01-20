@@ -1,3 +1,8 @@
+/**
+ * User Service
+ * Handles user management operations
+ */
+
 package com.todo.todo_app.service;
 
 import com.todo.todo_app.model.User;

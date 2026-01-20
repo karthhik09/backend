@@ -1,3 +1,8 @@
+/**
+ * CORS Configuration
+ * Allows frontend to communicate with backend API
+ */
+
 package com.todo.todo_app.config;
 
 import org.springframework.context.annotation.Configuration;

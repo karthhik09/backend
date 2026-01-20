@@ -1,3 +1,8 @@
+/**
+ * Task Controller
+ * Handles task management operations
+ */
+
 package com.todo.todo_app.controller;
 
 import com.todo.todo_app.model.Task;
@@ -15,31 +20,31 @@ public class TaskController {
     @Autowired
     private TaskService taskService;
 
-    // GET /api/tasks?userId={id}
+    // GET task by userid
     @GetMapping
     public List<Task> getTasks(@RequestParam Long userId) {
         return taskService.getTasksForUser(userId);
     }
 
-    // POST /api/tasks?userId={id}
+    // POST task by userid
     @PostMapping
     public Task createTask(@RequestBody Task task, @RequestParam Long userId) {
         return taskService.createTask(task, userId);
     }
 
-    // DELETE /api/tasks/{id}
+    // DELETE task by id
     @DeleteMapping("/{id}")
     public void deleteTask(@PathVariable Long id) {
         taskService.deleteTask(id);
     }
 
-    // PUT /api/tasks/{id}/toggle
+    // PUT task by id
     @PutMapping("/{id}/toggle")
     public Task toggleTask(@PathVariable Long id) {
         return taskService.toggleTask(id);
     }
 
-    // Put /{id}
+    // Put task by id
     @PutMapping("/{id}")
     public Task updateTask(@PathVariable Long id, @RequestBody Task taskDetails) {
         return taskService.updateTask(id, taskDetails);
